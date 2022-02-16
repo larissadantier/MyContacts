@@ -9,9 +9,8 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  strong{
+  strong {
     font-size: 24px;
-    color: ${({ theme }) => theme.colors.gray.g900};
   }
 
   a {
@@ -26,6 +25,78 @@ export const Header = styled.header`
     &:hover {
       background: ${({ theme }) => theme.colors.primary.main};
       color: #fff;
+    }
+  }
+`;
+
+export const ListContainer = styled.div`
+  margin-top: 24px;
+
+  header {
+    margin-bottom: 8px;
+      button {
+      display: flex;
+      align-items: center;
+      border: none;
+      background: transparent;
+
+      span {
+        font-weight: bold;
+        margin-right: 8px;
+        color:${({ theme }) => theme.colors.primary.main};
+      }
+    }
+  }
+`;
+
+export const Card = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+
+  & + & {
+    margin-top: 16px;
+  }
+
+  .info {
+    .contact-name{
+      display: flex;
+      align-items: center;
+
+      small {
+        font-size: 12px;
+        font-weight: bold;
+        background: ${({ theme }) => theme.colors.primary.lighter};
+        color:${({ theme }) => theme.colors.primary.main};
+        text-transform: uppercase;
+
+        margin-left: 8px;
+        padding: 4px;
+        border-radius: 4px;
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      color:${({ theme }) => theme.colors.gray[200]};
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    button {
+      border: none;
+      background: transparent;
+      margin-left: 8px;
     }
   }
 `;
