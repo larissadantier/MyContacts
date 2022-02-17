@@ -5,10 +5,13 @@ import {
 import arrow from '../../assets/images/svg/icons/arrow.svg';
 import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
+import Modal from '../../components/Modal';
 
 export default function Home() {
   return (
     <Container>
+
+      <Modal danger />
 
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contado..." />
