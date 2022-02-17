@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Loader from '../../components/Loader';
 import arrow from '../../assets/images/svg/icons/arrow.svg';
 import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
