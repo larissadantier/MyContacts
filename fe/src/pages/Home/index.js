@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-import {
-  Container, Header, ListContainer, Card, InputSearchContainer,
-} from './styles';
+import Loader from '../../components/Loader';
 import arrow from '../../assets/images/svg/icons/arrow.svg';
 import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
-import Modal from '../../components/Modal';
+import {
+  Container, Header, ListContainer, Card, InputSearchContainer,
+} from './styles';
 
 export default function Home() {
   return (
     <Container>
-
-      <Modal danger />
-
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contado..." />
       </InputSearchContainer>
