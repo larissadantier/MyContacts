@@ -38,9 +38,9 @@ export default function ContactForm({ buttonLabel }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log({
+    /* console.log({
       name, email, phone, category,
-    });
+    }); */
   }
 
   return (
@@ -57,7 +57,7 @@ export default function ContactForm({ buttonLabel }) {
       <FormGroup error={getErrorMessageByFieldName('email')}>
         <Input
           error={getErrorMessageByFieldName('email')}
-          placeholder="Email"
+          placeholder="E-mail"
           value={email}
           onChange={handleEmailChange}
         />
@@ -76,7 +76,7 @@ export default function ContactForm({ buttonLabel }) {
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         >
-          <option value="">Selecione a categoria</option>
+          <option value="">Categoria</option>
           <option value="instagram">Instagram</option>
           <option value="discord">Discord</option>
         </Select>
