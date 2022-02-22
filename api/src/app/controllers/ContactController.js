@@ -5,6 +5,8 @@ class ContactController {
     // Listar todos os registros
     const { orderBy } = request.query;
     const contacts = await ContactsRepository.findAll(orderBy);
+
+    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     response.json(contacts);
   }
 
