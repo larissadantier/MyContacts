@@ -84,6 +84,10 @@ export const Card = styled.div`
     margin-top: 16px;
   }
 
+  &:last-child{
+    margin-bottom: 16px;
+  }
+
   .info {
     .contact-name{
       display: flex;

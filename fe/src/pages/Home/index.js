@@ -1,12 +1,25 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import arrow from '../../assets/images/svg/icons/arrow.svg';
 import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
+import formatPhone from '../../utils/formatPhone';
 import {
   Container, Header, ListContainer, Card, InputSearchContainer,
 } from './styles';
 
 export default function Home() {
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/contacts')
+      .then(async (response) => {
+        const json = await response.json();
+        setContacts(json);
+      })
+      .catch((error) => console.log('Error', error));
+  }, []);
+
   return (
     <Container>
       <InputSearchContainer>
@@ -15,7 +28,8 @@ export default function Home() {
 
       <Header>
         <strong>
-          3 contatos
+          {contacts.length}
+          {contacts.length === 1 ? ' contato' : ' contatos'}
         </strong>
         <Link to="/new">Novo Contato</Link>
       </Header>
@@ -27,20 +41,27 @@ export default function Home() {
             <img src={arrow} alt="arrow" />
           </button>
         </header>
+      </ListContainer>
 
-        <Card>
+      {contacts.map((contact) => (
+        <Card key={contact.id}>
           <div className="info">
             <div className="contact-name">
-              <strong>Larissa Dantier</strong>
-              <small>instagram</small>
+              <strong>{contact.name}</strong>
+              {contact.category_name
+                ? <small>{contact.category_name}</small>
+                : 'Sem Categoria'}
             </div>
-
-            <span>larissa@hotmail.com</span>
-            <span>(22) 99999-9999</span>
+            {contact.email
+              ? <span>contact.email</span>
+              : 'Sem E-mail'}
+            {contact.phone
+              ? <span>{formatPhone(`${contact.phone}`)}</span>
+              : 'Sem Número'}
           </div>
 
           <div className="actions">
-            <Link to="/edit/1">
+            <Link to={`edit/${contact.id}`}>
               <img src={edit} alt="Editar" />
             </Link>
             <button type="button">
@@ -48,7 +69,7 @@ export default function Home() {
             </button>
           </div>
         </Card>
-      </ListContainer>
+      ))}
     </Container>
   );
 }
