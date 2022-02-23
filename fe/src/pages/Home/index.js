@@ -50,14 +50,14 @@ export default function Home() {
               <strong>{contact.name}</strong>
               {contact.category_name
                 ? <small>{contact.category_name}</small>
-                : 'Sem Categoria'}
+                : <small>Sem Categoria</small>}
             </div>
             {contact.email
-              ? <span>contact.email</span>
-              : 'Sem E-mail'}
+              ? <span>{contact.email}</span>
+              : <span>Sem E-mail</span>}
             {contact.phone
               ? <span>{formatPhone(`${contact.phone}`)}</span>
-              : 'Sem Número'}
+              : <span>Sem Número</span>}
           </div>
 
           <div className="actions">
