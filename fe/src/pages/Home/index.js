@@ -5,7 +5,7 @@ import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
 import formatPhone from '../../utils/formatPhone';
 import {
-  Container, Header, ListContainer, Card, InputSearchContainer,
+  Container, Header, ListHeader, Card, InputSearchContainer,
 } from './styles';
 
 export default function Home() {
@@ -34,23 +34,23 @@ export default function Home() {
         <Link to="/new">Novo Contato</Link>
       </Header>
 
-      <ListContainer>
-        <header>
-          <button type="button">
-            <span>Nome</span>
-            <img src={arrow} alt="arrow" />
-          </button>
-        </header>
-      </ListContainer>
+      <ListHeader>
+        <button type="button">
+          <span>Nome</span>
+          <img src={arrow} alt="arrow" />
+        </button>
+      </ListHeader>
 
       {contacts.map((contact) => (
         <Card key={contact.id}>
           <div className="info">
             <div className="contact-name">
               <strong>{contact.name}</strong>
-              {contact.category_name
-                ? <small>{contact.category_name}</small>
-                : <small>Sem Categoria</small>}
+              {contact.category_name && (
+                <small>
+                  {contact.category_name}
+                </small>
+              )}
             </div>
             {contact.email
               ? <span>{contact.email}</span>
