@@ -4,26 +4,35 @@ import arrow from '../../assets/images/svg/icons/arrow.svg';
 import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
 import formatPhone from '../../utils/formatPhone';
+import Loader from '../../components/Loader';
 import {
   Container, Header, ListHeader, Card, InputSearchContainer,
 } from './styles';
+import delay from '../../utils/delay';
 
 export default function Home() {
   const [contacts, setContacts] = useState([]);
   const [orderBy, setOrderBy] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const filteredContacts = useMemo(() => contacts.filter((contact) => (
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   )), [contacts, searchTerm]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`http://localhost:3001/contacts/?orderBy=${orderBy}`)
       .then(async (response) => {
+        await delay(500);
+
         const json = await response.json();
         setContacts(json);
       })
-      .catch((error) => console.log('Error', error));
+      .catch((error) => console.log('Error', error))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [orderBy]);
 
   function handleToggleOrderBy() {
@@ -36,6 +45,8 @@ export default function Home() {
 
   return (
     <Container>
+      <Loader isLoading={isLoading}/>
+
       <InputSearchContainer>
         <input
           type="text"
