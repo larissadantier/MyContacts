@@ -21,18 +21,22 @@ export default function Home() {
   )), [contacts, searchTerm]);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`http://localhost:3001/contacts/?orderBy=${orderBy}`)
-      .then(async (response) => {
+    async function loadContacts() {
+      try {
+        setIsLoading(true);
+
+        const response = await fetch(`http://localhost:3001/contacts/?orderBy=${orderBy}`);
         await delay(500);
 
         const json = await response.json();
         setContacts(json);
-      })
-      .catch((error) => console.log('Error', error))
-      .finally(() => {
+      } catch (err) {
+        console.log('Error', err);
+      } finally {
         setIsLoading(false);
-      });
+      }
+    }
+    loadContacts();
   }, [orderBy]);
 
   function handleToggleOrderBy() {
@@ -45,7 +49,7 @@ export default function Home() {
 
   return (
     <Container>
-      <Loader isLoading={isLoading}/>
+      <Loader isLoading={isLoading} />
 
       <InputSearchContainer>
         <input

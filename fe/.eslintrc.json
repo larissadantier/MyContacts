@@ -4,6 +4,7 @@
     "es2021": true
   },
   "extends": [
+    "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "airbnb"
   ],
@@ -15,7 +16,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "react-hooks"
   ],
   "rules": {
     "react/jsx-filename-extension": [
@@ -34,5 +36,7 @@
     "react/jsx-no-bind": "off",
     "linebreak-style": "off",
     "no-promise-executor-return": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
