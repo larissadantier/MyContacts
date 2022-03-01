@@ -5,6 +5,7 @@ import edit from '../../assets/images/svg/icons/edit.svg';
 import trash from '../../assets/images/svg/icons/trash.svg';
 import formatPhone from '../../utils/formatPhone';
 import Loader from '../../components/Loader';
+
 import ContactsService from '../../services/ContactsService';
 
 import {
@@ -28,8 +29,12 @@ export default function Home() {
 
         const contactsList = await ContactsService.listContacts(orderBy);
         setContacts(contactsList);
-      } catch (err) {
-        console.log('Error', err);
+      } catch (error) {
+        console.log('Name:', error.name);
+        console.log('Message:', error.message);
+        console.log('Response:', error.response);
+        console.log('Body:', error.body);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
