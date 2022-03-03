@@ -6,7 +6,7 @@ export default styled.select`
 
   padding: 0 16px;
 
-  background: #fff;
+  background:#fff;
 
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
@@ -19,7 +19,12 @@ export default styled.select`
 
   appearance: none;
 
-  &:focus{
+  &:focus {
     border-color: ${({ theme }) => theme.colors.primary.main};
+  }
+
+  &[disabled] {
+    background-color: ${({ theme }) => theme.colors.gray[100]};
+    border-color: ${({ theme }) => theme.colors.gray[200]};
   }
 `;

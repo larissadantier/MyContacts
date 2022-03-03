@@ -38,6 +38,7 @@
     "no-promise-executor-return": "off",
     "class-methods-use-this": "off",
     "react-hooks/rules-of-hooks": "error",
+    "no-empty": ["error", { "allowEmptyCatch": true }],
     "react-hooks/exhaustive-deps": "warn"
   }
 }

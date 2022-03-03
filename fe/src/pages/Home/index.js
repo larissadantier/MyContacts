@@ -166,10 +166,10 @@ export default function Home() {
                 </div>
                 {contact.email
                   ? <span>{contact.email}</span>
-                  : <span>Sem E-mail</span>}
+                  : <span>Sem e-mail</span>}
                 {contact.phone
                   ? <span>{formatPhone(`${contact.phone}`)}</span>
-                  : <span>Sem Número</span>}
+                  : <span>Sem número</span>}
               </div>
 
               <div className="actions">
