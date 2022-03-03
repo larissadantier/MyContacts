@@ -90,6 +90,20 @@ export const EmptyContainer = styled.div`
   }
 `;
 
+export const SearchNotFoundContainer = styled.div`
+  margin-top: 16px;
+
+  display: flex;
+  align-items: flex-start;
+
+  span {
+    margin-left: 24px;
+    word-break: break-word;
+    color: ${({ theme }) => theme.colors.gray[200]};
+
+  }
+`;
+
 export const ListHeader = styled.header`
   margin-top: 24px;
   margin-bottom: 8px;
