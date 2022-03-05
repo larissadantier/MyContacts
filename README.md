@@ -38,8 +38,9 @@ Tecnologias utilizadas durante o projeto:
 - Componentes Reutilizaveis e Dinâmicos
 - Contatos ordenados de forma crescente e decrescente
 - Tela de Loading / Spinner dinâmico
-- CRUD
 - Hook Personalizado
+- CSS-in-JS
+- CRUD
 - Responsividade
 
 ## ⭐ Conceitos implantados - Back-end
