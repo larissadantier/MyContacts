@@ -50,7 +50,9 @@ Tecnologias utilizadas durante o projeto:
 - Sistema de rotas utilizando o Express
 - CRUD
 
-## 💻 Projeto - em construção.. 🚧👷‍♂️
+## 💻 Projeto
+
+Este projeto está em construção.. 🚧👷‍♂️
 
 Projeto que permite você realizar o registro de um contato, editar, deletar, ordenar de forma crescente e decrescente e pesquisar o seu contato através de seu nome. 😄.
 
