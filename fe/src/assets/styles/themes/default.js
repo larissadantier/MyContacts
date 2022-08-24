@@ -17,5 +17,8 @@ export default {
       200: '#BCBCBC',
       100: '#E5E5E5',
     },
+    success: {
+      main: '#51CA73',
+    },
   },
 };
