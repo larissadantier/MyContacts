@@ -80,6 +80,10 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
     });
 
     setIsSumitting(false);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setCategoryId('');
   }
 
   return (

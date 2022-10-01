@@ -18,6 +18,7 @@ export default function NewContact() {
       showToast({
         type: 'success',
         text: 'Contato cadastrado com sucesso!',
+        duration: 3000,
       });
     } catch {
       showToast({

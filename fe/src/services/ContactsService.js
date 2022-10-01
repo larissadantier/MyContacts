@@ -5,18 +5,23 @@ class ContactsService {
     this.httpClient = new HttpClient('http://localhost:3001');
   }
 
-  async listContacts(orderBy = 'asc') {
-    return this.httpClient.get(`/contacts/?orderBy=${orderBy}`, {
-      headers:
-      { Authorization: 'meutoken' },
-    });
+  listContacts(orderBy = 'asc') {
+    return this.httpClient.get(`/contacts/?orderBy=${orderBy}`);
   }
 
-  async createContact(contact) {
+  getContactById(id) {
+    return this.httpClient.get(`/contacts/${id}`);
+  }
+
+  createContact(contact) {
     return this.httpClient.post('/contacts', { body: contact });
   }
 
-  async deleteContact(id) {
+  EditContact(id, contact) {
+    return this.httpClient.post('/contacts', { id, body: contact });
+  }
+
+  deleteContact(id) {
     return this.httpClient.post('/contacts', id);
   }
 }
