@@ -37,8 +37,29 @@ export default function EditContact() {
     loadContact();
   }, [id, history]);
 
-  async function handleSubmit() {
-    console.log('riririr');
+  async function handleSubmit(formData) {
+    try {
+      const contact = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        category_id: formData.categoryId,
+      };
+
+      const contactData = await ContactsService.updateContact(id, contact);
+      setContactName(contactData.name);
+
+      showToast({
+        type: 'success',
+        text: 'Contato editado com sucesso!',
+        duration: 3000,
+      });
+    } catch {
+      showToast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao editar o contato!',
+      });
+    }
   }
   return (
     <>
