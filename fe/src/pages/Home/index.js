@@ -32,6 +32,7 @@ import {
   EmptyContainer,
   SearchNotFoundContainer,
 } from './styles';
+import Modal from '../../components/Modal';
 
 export default function Home() {
   const [contacts, setContacts] = useState([]);
@@ -78,6 +79,16 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        title="Tem certeza que deseja remover o contato ”Mateus Silva”?"
+        danger
+        confirmLabel="Deletar"
+        onCancel={() => alert('Fechou')}
+        onConfirm={() => alert('Deletou')}
+      >
+        <p>Esta ação não poderá ser desfeita!</p>
+      </Modal>
 
       {contacts.length > 0 && (
         <InputSearchContainer>
