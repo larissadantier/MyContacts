@@ -22,7 +22,7 @@ class ContactsService {
   }
 
   deleteContact(id) {
-    return this.httpClient.post('/contacts', id);
+    return this.httpClient.delete(`/contacts/${id}`);
   }
 }
 
